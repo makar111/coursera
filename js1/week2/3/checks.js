@@ -8,6 +8,10 @@ var phoneBook = require('./index.js');
 phoneBook('ADD Ivan 555-10-01,555-10-03');
 phoneBook('ADD Ivan 555-10-02');
 
+//+++test
+phoneBook('ADD Ivan 555-10-02');
+
+
 // Проверка работы функции SHOW
 assert.deepEqual(
     // Получаем содержимое телефонной книги
@@ -42,6 +46,9 @@ assert.deepEqual(
 // Удаляем телефон
 phoneBook('REMOVE_PHONE 555-20-01');
 
+phoneBook('REMOVE_PHONE 555-20-01');
+
+
 // Проверка работы функции SHOW
 assert.deepEqual(
     // Получаем содержимое телефонной книги
@@ -52,4 +59,7 @@ assert.deepEqual(
     'В телефонной книге: "Ivan: 555-10-01, 555-10-02"'
 );
 
+phoneBook('ADD Alex 555-20-01');
+
+//console.log(phoneBook('SHOW'));
 console.info('OK!');

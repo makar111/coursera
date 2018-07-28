@@ -27,13 +27,14 @@ module.exports = function (command) {
 function addContact(commandArray) {
 	
 	if (phoneBook.hasOwnProperty(commandArray[1])) {
-		if (phoneBook[commandArray[1]].indexOf(commandArray[2] === -1)) { 
+		if (!phoneBook[commandArray[1]].includes(commandArray[2])) { 
 			phoneBook[commandArray[1]] += ',' + commandArray[2];
 		}
 	} else {
 		phoneBook[commandArray[1]]=commandArray[2];
 	}
-
+	
+//	console.log(showPhoneBook());
 	return phoneBook;
 }
 
@@ -47,6 +48,10 @@ function removePhone(commandArray) {
 			phoneBook[key] = phoneBook[key].replace(commandArray[1],'').replace(',,',',');
 		}
 	}
+
+//	console.log(commandArray);
+//	console.log(phoneBook);
+//	console.log(result);
 
 	return result;
 }
