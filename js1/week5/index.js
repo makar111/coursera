@@ -40,9 +40,11 @@ module.exports = {
      * @param {String} event
      */
     emit: function (event) {
-		this._subscriberList[event].forEach(function(value) {
-			value[1].call(value[0]);
-		});
+		if(this._subscriberList.hasOwnProperty(event))  {
+			this._subscriberList[event].forEach(function(value) {
+				value[1].call(value[0]);
+			});
+		}
 		return this;
     }
 }
